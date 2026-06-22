@@ -1,0 +1,10 @@
+langgraph
+langchain
+langchain-groq
+tavily-python
+firecrawl-py
+python-docx
+streamlit
+langchain-core
+python-dotenv
+nest-asyncio
