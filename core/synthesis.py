@@ -5,6 +5,7 @@ from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 import os
+import tempfile
 from datetime import datetime
 
 llm = ChatGroq(api_key=GROQ_API_KEY, model=LLM_MODEL, temperature=0.3)
@@ -93,7 +94,7 @@ def save_to_docx(results: dict, executive_summary: str,
         doc.add_paragraph(content)
         doc.add_page_break()
     
-    filename = f"output/AutoFounder_{business_idea.replace(' ', '_')}_{location}.docx"
+    filename = os.path.join(tempfile.gettempdir(), f"AutoFounder_{business_idea.replace(' ', '_')}_{location}.docx")
     doc.save(filename)
     
     return filename
